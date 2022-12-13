@@ -1,0 +1,27 @@
+{
+  "name": "my-vite-app-with-cdk-infra",
+  "version": "1.0.0",
+  "description": "Infrastructure for an HTTPS static site using S3 and CloudFront",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk",
+    "cdk:diff": "cdk diff",
+    "cdk:synth": "cdk synth",
+    "cdk:deploy": "cdk deploy --require-approval never"
+  },
+  "author": {
+    "name": "Nitish Kumar"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^10.17.0",
+    "aws-cdk": "*",
+    "typescript": "~4.6.0"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.0.0",
+    "constructs": "^10.0.0",
+    "dotenv": "^16.0.3"
+  }
+}

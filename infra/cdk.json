@@ -1,0 +1,11 @@
+{
+    "app": "node index",
+    "profile": "default",
+    "context": {
+        "accountId": "509432821674",
+        "domain": "nitishkumar.dev",
+        "subdomain": "my-vite-app-with-cdk",
+        "s3Bucket": "my-vite-app-with-cdk-test",
+        "buildPath": "../dist"
+    }
+}
