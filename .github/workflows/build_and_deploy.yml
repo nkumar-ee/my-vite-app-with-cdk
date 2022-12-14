@@ -54,6 +54,8 @@ jobs:
     needs: build
     environment:
       name: "dev"
+    env:
+      CDK_CONTEXT_ENVIRONMENT: "dev"
   
     steps:
       - name: Download artifact from build job

@@ -10,9 +10,9 @@ import * as iam from 'aws-cdk-lib/aws-iam';
 import { CfnOutput, Duration, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
-export interface StaticSiteProps {
+export interface StaticSiteProps  {
   domainName: string;
-  siteSubDomain: string;
+  subDomainName: string;
   s3BucketName: string;
   buildPath: string;
 }
@@ -28,7 +28,7 @@ export class StaticSite extends Construct {
     super(parent, name);
 
     const zone = route53.HostedZone.fromLookup(this, 'Zone', { domainName: props.domainName });
-    const siteDomain = props.siteSubDomain + '.' + props.domainName;
+    const siteDomain = props.subDomainName + '.' + props.domainName;
     new CfnOutput(this, 'Site', { value: 'https://' + siteDomain });
 
     // S3 bucket
