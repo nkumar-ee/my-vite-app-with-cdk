@@ -6,10 +6,10 @@ name: My Vite App with CDK (build and deploy)
 on:
   push:
     branches: ["main"]
+    paths:
+      - "src/App.tsx"
   pull_request:
     branches: ["main"]
-  paths:
-    - 'src/App.tsx'
   workflow_dispatch:
 
 env:
@@ -58,7 +58,7 @@ jobs:
       name: "dev"
     env:
       CDK_CONTEXT_ENVIRONMENT: "dev"
-  
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
@@ -73,7 +73,7 @@ jobs:
 
       - name: Get caller identity
         run: aws sts get-caller-identity
-        
+
       - name: Install
         run: npm install
         working-directory: infra
@@ -86,6 +86,6 @@ jobs:
         run: npm run cdk:synth
         working-directory: infra
 
-      - name: Provision & Deploy 
+      - name: Provision & Deploy
         run: npm run cdk:deploy
         working-directory: infra
