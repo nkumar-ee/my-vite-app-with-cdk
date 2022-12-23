@@ -6,10 +6,6 @@ name: My Vite App with CDK (build and deploy)
 on:
   push:
     branches: ["main"]
-    paths:
-      - "src/App.tsx"
-  pull_request:
-    branches: ["main"]
   workflow_dispatch:
 
 env:
@@ -49,7 +45,7 @@ jobs:
 
   deploy-to-dev:
     name: deploy to dev environment
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    # if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     permissions:
       contents: none
     runs-on: ubuntu-latest
