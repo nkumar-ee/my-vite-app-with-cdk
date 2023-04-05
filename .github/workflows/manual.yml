@@ -1,0 +1,26 @@
+name: My Account SPA
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deploy Environment'
+        type: environment
+        required: true
+
+env:
+  NODE_VERSION: "18.x"
+  WORKING_DIRECTORY: "spa"
+
+jobs:
+  build-and-deploy:
+    name: Install, Build & Deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.environment }}
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Runs a single command using the runners shell
+    - name: Send greeting
+      run: echo "${{ inputs.environment }}"
