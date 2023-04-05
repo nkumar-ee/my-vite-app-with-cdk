@@ -1,26 +1,27 @@
 name: Manual Input Action
 
 on:
+  push:
+    branches: ["main"]
+    paths:
+      - "api/**"
+      - ".github/workflows/manual.yml"
   workflow_dispatch:
     inputs:
       environment:
         description: 'Deploy Environment'
         type: environment
-        required: false
-
-env:
-  NODE_VERSION: "18.x"
-  WORKING_DIRECTORY: "spa"
+        required: true
 
 jobs:
   build-and-deploy:
     name: Install, Build & Deploy
     runs-on: ubuntu-latest
     environment:
-      name: ${{ inputs.environment }}
+      name: ${{ inputs.environment || 'pp' }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: echo "${{ inputs.environments || 'Hello' }}"
+      run: echo "${{ vars.TEST }}"
