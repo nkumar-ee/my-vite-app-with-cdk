@@ -6,7 +6,7 @@ on:
       environment:
         description: 'Deploy Environment'
         type: environment
-        required: true
+        required: false
 
 env:
   NODE_VERSION: "18.x"
@@ -23,4 +23,4 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: echo "${{ inputs.environment }}"
+      run: echo "${{ inputs.environment | 'Hello' }}"
