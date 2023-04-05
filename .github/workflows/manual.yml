@@ -1,4 +1,4 @@
-name: My Account SPA
+name: Manual Input Action
 
 on:
   workflow_dispatch:
