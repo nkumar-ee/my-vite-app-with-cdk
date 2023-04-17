@@ -27,5 +27,5 @@ jobs:
      - name: Prepare environment config
        run: cp environment/.env.${{ inputs.environment || 'pp'}} .env
 
-    - name: Send greeting
-      run: echo "${{ vars.TEST }}"
+     - name: Send greeting
+       run: echo "${{ vars.TEST }}"
