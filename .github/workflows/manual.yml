@@ -19,9 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.environment || 'pp' }}
+      
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
+     - name: Prepare environment config
+       run: cp environment/.env.${{ inputs.environment || 'pp'}} .env
+
     - name: Send greeting
       run: echo "${{ vars.TEST }}"
